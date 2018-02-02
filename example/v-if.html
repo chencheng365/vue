@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-if v-show</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<!--   v-if与v-show的区别？
+  在切换 v-if 块时，Vue.js 有一个局部编译/卸载过程，因为 v-if 之中的模板也可能包括数据绑定或子组件。v-if 是真实的条件渲染，因为它会确保条件块在切换当中合适地销毁与重建条件块内的事件监听器和子组件。
+v-if 也是惰性的：如果在初始渲染时条件为假，则什么也不做——在条件第一次变为真时才开始局部编译（编译会被缓存起来）。
+相比之下，v-show 简单得多——元素始终被编译并保留，只是简单地基于 CSS 切换。
+一般来说，v-if 有更高的切换消耗而 v-show 有更高的初始渲染消耗。因此，如果需要频繁切换 v-show 较好，如果在运行时条件不大可能改变 v-if 较好。
+ -->
+
+  <h1>v-if v-show判断是否加载 </h1>
+  <hr>
+  <div id="app-2">
+    <button @click="changeState">点我切换登录状态</button>
+    <div v-if="isLogin">你好：orange</div>
+    <div v-else>请登录后操作</div>
+    <p v-if="seen">现在你看到我了</p>
+
+    <!-- v-else-if 在 2.1.0 新增，顾名思义，用作 v-if 的 else-if 块。可以链式的多次使用 -->
+    <div v-if="type === 'A'">
+      A
+    </div>
+    <div v-else-if="type === 'B'">
+      B
+    </div>
+    <div v-else-if="type === 'C'">
+      C
+    </div>
+    <div v-else>
+      Not A/B/C
+    </div>
+    
+    <div v-show="isLogin">你好：chencheng</div>
+  </div>
+
+</body>
+<script>
+
+var app2 = new Vue({
+  el:'#app-2',
+  data: {
+    isLogin:false,
+    seen:true,
+    type:'B'
+  },
+  methods:{
+    changeState:function(){
+      this.isLogin=!this.isLogin;
+    }
+  }
+})
+</script>
+</html>

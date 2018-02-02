@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-bind 属性、样式绑定</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>v-bind 属性、样式绑定</h1>
+  <hr>
+  <div id="app">
+      <img v-bind:src="imgSrc" v-bind:title="biaoti" width="200px">
+  </div>
+</body>
+<script>
+var app = new Vue({
+  el:'#app',
+  data:{
+    biaoti:'每天进步一点点',
+    imgSrc:'https://avatars3.githubusercontent.com/u/17995843?v=3&s=460'
+  }
+})
+</script>
+</html>

@@ -1,130 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>study vue</title>
-	<script src="js/vue.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>学习vue2.0</title>
 </head>
 <body>
-	<div id="app">
-	  {{ message }}
-	</div>
-
-	<br>
-
-	<div id="app-2">
-		<span v-bind:title="msgg">鼠标悬停几秒钟查看此处动态绑定的提示信息！</span>
-	</div>
-
-	<br>
-
-	<div id="app-3">
-		<p v-if="seen">现在你看到我了</p>
-	</div>
-
-	<br>
-
-	<div id="app-4">
-		<ol>
-			<li v-for="todo in todos">
-				{{ todo.text }}
-			</li>
-		</ol>
-	</div>
-
-	<br>
-
-	<div id="app-5">
-		<p>{{message}}</p>
-		<button v-on:click="reverseMessage">逆转消息</button>
-	</div>
-
-	<br>
-
-	<div id="app-6">
-		<p>{{message}}</p>
-		<input type="text" v-model="message">
-	</div>
-
-	<br>
-
-	<div id="app-7">
-		<ol>
-		  	<!-- 创建一个 todo-item 组件的实例 -->
-		    <!-- 现在我们为每个todo-item提供待办项对象 -->
-    		<!-- 待办项对象是变量，即其内容可以是动态的 -->
-		  <todo-item v-for="item in groceryList" v-bind:todo="item" :key="item.id"></todo-item>
-		</ol>
-	</div>
-
+  <h1>Vue2.0实例</h1>
+  <hr>
+  <h3>第一季：Vue2.0内部指令</h3>
+  <ol>
+      <li><a href="./example/helloVue.html" target="_blank">Hello Vue 案例</a></li>
+      <li><a href="./example/v-if.html" target="_blank">v-if & v-show & v-else</a></li>
+      <li><a href="./example/v-for.html" target="_blank">v-for 案例</a></li>
+      <li><a href="./example/v-text.html" target="_blank">v-text & v-html 案例</a></li>
+      <li><a href="./example/v-on.html" target="_blank">v-on 监听事件 案例</a></li>
+      <li><a href="./example/v-model.html" target="_blank">v-model 绑定数据源 案例</a></li>
+      <li><a href="./example/v-bind.html" target="_blank">v-bind 案例</a></li>
+      <li><a href="./example/others.html" target="_blank">其它内部指令 v-pre & v-cloak & v-once</a></li>
+  </ol>
 </body>
-<script>
-	var app = new Vue({
-		el:'#app',
-		data:{
-			message: 'start study vue! go go go'
-		}
-	})
-
-	var app2 = new Vue({
-		el:'#app-2',
-		data:{
-			msgg: '页面加载于:' + new Date()
-		}
-	})
-
-	var app3 = new Vue({
-		el:'#app-3',
-		data:{
-			seen:true
-		}
-	})
-
-	var app4 = new Vue({
-		el:'#app-4',
-		data:{
-			todos:[
-				{text:'学习javascript'},
-				{text:'学习vue'},
-				{text:'整个牛项目'}
-			]
-		}
-	})
-
-	var app5 = new Vue({
-		el:'#app-5',
-		data:{
-			message:'hello vue!',
-		},
-		methods:{
-			reverseMessage: function(){
-				this.message = this.message.split('').reverse().join('')
-			}
-		}
-	})
-
-	var app6 = new Vue({
-		el:'#app-6',
-		data:{
-			message:'hello vue !'
-		}
-	})
-
-	// 定义名为 todo-item 的新组件
-	Vue.component('todo-item', {
-		props:['todo'],
-	  	template: '<li>{{ todo.text }}</li>'
-	})
-
-	var app7 = new Vue({
-		el:'#app-7',
-		data:{
-			groceryList:[
-			 {text:'蔬菜'},
-			 {text:'水果'},
-			 {text:'其他东东'}
-			]
-		}
-	})
-</script>
 </html>

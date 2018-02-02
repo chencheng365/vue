@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-on 绑定事件监听器</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+    <h1>v-on 事件监听器</h1>
+    <hr>
+    <div id="app-2">
+       本场比赛得分： {{count}}<br/>
+       <button v-on:click="jiafen">加分</button>
+       <!-- 
+           v-on 还有一种简单的写法，就是用@代替。
+        -->
+       <button @click="jianfen">减分</button>
+       <!-- 
+           键盘回车事件v-on:keyup.enter
+           增加一个输入框，然后绑定回车事件，回车后把文本框里的值加到我们的count上
+        -->
+       <input type="text" v-on:keyup.enter="onEnter" v-model="secondCount">
+    </div>
+    
+</body>
+<script>
+    
+    var app2 = new Vue({
+        el:'#app-2',
+        data:{
+            count:1,
+            secondCount:1
+        },
+        methods:{
+            jianfen:function(){
+                this.count--;
+            },
+            jiafen:function(){
+                this.count++;
+            },
+            onEnter:function(){
+                this.count=this.count+parseInt(this.secondCount)
+            }
+        }
+    })
+
+</script>
+</html>

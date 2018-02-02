@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-for</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+  <h1>v-for 循环指令用法 </h1>
+  <hr>  
+  <div id="app-3">
+    <ul>
+      <li v-for="item in sortItems">{{item}}</li>
+    </ul>
+    <ol>
+      <li v-for="site in sites">
+        {{ site.name }}
+      </li>
+    </ol>
+    <ul>
+      <template v-for="site in sites">
+        <li>{{ site.name }}</li>
+        <li>--------------</li>
+      </template>
+    </ul>
+    <ul>
+      <li v-for="value in object">
+      {{ value }}
+      </li>
+    </ul>
+    <ul>
+      <li v-for="(value, key) in object">
+      {{ key }} : {{ value }}
+      </li>
+    </ul>
+    <ul>
+      <li v-for="(index, key, value) in object">
+       {{ value }}. {{ key }} : {{ index }}
+      </li>
+    </ul>
+    <ul>
+      <li v-for="n in 5">
+       {{ n }}
+      </li>
+    </ul>
+    <div v-for="k in obj">  {{ k }} </div>
+  <ul>
+    <li v-for="(student,index) in sortStudent">
+       {{index}} : {{student.name}} - {{student.age}}
+    </li>
+  </ul>                    
+  </div>
+</body>
+<script>
+
+var app3 = new Vue({
+  el:'#app-3',
+  data:{
+    items:[20,18,65,5,19,54,56,1],
+    sites: [
+      { name: 'Runoob' },
+      { name: 'Google' },
+      { name: 'Taobao' }
+    ],
+    object: {
+      name: '菜鸟教程',
+      url: 'http://www.runoob.com',
+      slogan: '学的不仅是技术，更是梦想！'
+    },
+    obj: {
+      2: '学的不仅是技术，更是梦想！',
+      1: '菜鸟教程',
+      0: 'http://www.runoob.com'
+    },
+    students:[
+      {name:'jspang',age:32},
+      {name:'Panda',age:30},
+      {name:'PanPaN',age:21},
+      {name:'King',age:45}
+    ]
+  },
+  computed:{ //计算属性
+    sortItems:function(){
+          console.log("sortItems");
+          return this.items.sort(sortNumber);
+    },
+    sortStudent:function(){
+      return sortByKey(this.students,'age')
+    }
+  }
+})
+
+  function sortNumber(a, b) {
+    return a - b
+  }
+
+  //数组对象方法排序:
+  function sortByKey(array,key){
+      return array.sort(function(a,b){  
+        console.log(JSON.stringify(a)+"---"+JSON.stringify(b));
+        console.log(a[key]+"---"+b[key]);
+        var x=a[key];
+        var y=b[key];
+        return x-y;
+    });
+  }  
+</script>
+</html>
