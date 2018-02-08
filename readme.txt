@@ -1,4 +1,4 @@
-http://jspang.com/2017/02/23/vue2_01/
+http://jspang.com/2017/03/14/vue2_02/
 
 http://www.runoob.com/vue2/vue-if.html
 
