@@ -21,11 +21,9 @@
 //   console.log(binding);
 //   el.style.color=binding.value
 // })
-
   function unbind() {
     app.$destroy();
   }
-
   Vue.directive('orange', {
     bind: function (el,binding) {
       console.log('1 - bind - 被绑定');
@@ -44,7 +42,6 @@
       console.log('5 - unbind - 解绑');
     }
   })
-
 var app = new Vue({
   el:'#app',
   data:{
