@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue.set全局操作</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>Vue.set全局操作</h1>
+  <hr>
+  <div id="app">
+    <p>{{count}}</p>
+    <ul>
+      <li v-for="item in goods">{{item}}</li>
+    </ul>
+  </div>
+  <button onclick="add()">add</button>
+</body>
+<script>
+  function add() {
+    // Vue.set(outData,'count',33); //用Vue.set改变
+   // app.count++; //用Vue对象的方法改变
+   // outData.count++;//直接操作外部数据
+  //  app.goods[1]="aaa"; //不能自动更新数组中数据
+   Vue.set(app.goods,'1',33);
+  }
+
+  var outData = {
+    count:1,
+    goods:['banana','orange','apple','peach']
+  }
+
+  var app = new Vue({
+    el:'#app',
+    data:outData
+  })
+</script>
+</html>
