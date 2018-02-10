@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue.extend构造器的延伸</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>Vue.extend构造器的延伸</h1>
+  <hr>
+  <author></author>
+  <div id="author"></div>
+</body>
+<script>
+  var authorExtend = Vue.extend({
+    template:'<p><a :href="authorUrl" target="_blank">{{authorName}}</a></p>',
+    data:function(){
+      return {
+        authorName:'orange-github',
+        authorUrl:'https://github.com/chencheng365'
+      }
+    }
+  })
+  // 挂载 扩展实例构造器
+  new authorExtend().$mount('author');
+  new authorExtend().$mount('#author');
+</script>
+</html>
