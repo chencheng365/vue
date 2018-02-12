@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Component 标签</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>Component 标签切换</h1>
+  <hr>
+  <div id="app">
+    <apple v-bind:is="fruits"></apple>
+    <button @click="changeComponent">切换</button>
+  </div>
+
+</body>
+<script>
+  var orangeComponent = {
+    template:`<p>我是橙子</p>`
+  }
+
+  var appleComPonent = {
+    template:`<p>我是苹果</p>`
+  }
+
+  var bananaComponent = {
+    template:`<p>我是香蕉</p>`
+  }
+  var app = new Vue({
+    el:'#app',
+    data:{
+      fruits:'banana'
+    },
+    components:{
+      "apple":appleComPonent,
+      "banana":bananaComponent,
+      "orange":orangeComponent
+    },
+    methods:{
+      changeComponent:function(){
+        console.log(this.fruits);
+        if(this.fruits=='orange'){
+          this.fruits='apple'
+        }else if(this.fruits='apple'){
+          this.fruits='orange'
+        }else{
+          this.fruits='banana'
+        }
+      }
+    }
+  })
+</script>
+</html>
