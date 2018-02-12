@@ -12,6 +12,7 @@
   <hr>
   <div id="app">
     <orange here="China"></orange>
+    <orange :here="message"></orange>
   </div>
 
 </body>
@@ -19,6 +20,9 @@
 
   var app = new Vue({
     el:'#app',
+    data:{
+      message:'Sichua'
+    },
     components:{
       "orange":{
         template:`<div style="color:green;">orange from to {{here}}</div>`,
@@ -27,5 +31,6 @@
     }
   })
 
+  // props选项就是设置和获取标签上的属性值的
 </script>
 </html>
