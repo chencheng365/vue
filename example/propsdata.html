@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>propsData Option 全局扩展的数据传递</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>propsData Option 全局扩展的数据传递</h1>
+  <hr>
+  <div id="app">
+    <header></header>
+  </div>
+</body>
+<script>
+  /*
+  
+    我们用propsData三步解决传值：
+
+  1、在全局扩展里加入props进行接收。propsData:{parameter:'全局扩展的数据传递'}
+
+  2、传递时用propsData进行传递。props:['parameter']
+
+  3、用插值的形式写入模板。{{ parameter }}
+  
+  */
+
+  var _header = Vue.extend({
+    template:`<p>{{message}}--{{parameter}}</p>`,
+    data:function(){
+      return {
+        message:'Hello, I am header'
+      }
+    },
+    props:['parameter']
+  })
+  new _header({propsData:{parameter:'全局扩展的数据传递'}}).$mount('header'); 
+</script>
+</html>
