@@ -28,14 +28,14 @@
   */
 
   var _header = Vue.extend({
-    template:`<p>{{message}}--{{parameter}}</p>`,
+    template:`<p>{{message}}--{{parameter}}---{{test}}</p>`,
     data:function(){
       return {
         message:'Hello, I am header'
       }
     },
-    props:['parameter']
+    props:['parameter','test']
   })
-  new _header({propsData:{parameter:'全局扩展的数据传递'}}).$mount('header'); 
+  new _header({propsData:{parameter:'全局扩展的数据传递',test:'测试插值'}}).$mount('header'); 
 </script>
 </html>
