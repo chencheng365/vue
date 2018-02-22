@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Methods Option  方法选项</title>
+  <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>Methods Option  方法选项</h1>
+  <hr>
+  <div id="app">
+    {{num}}
+    <br>
+    <button @click="add(2)">add</button>
+    <br>
+    <!-- 用.native修饰器来调用构造器里的add方法 -->
+    <add @click.native="add(3)"></add>
+  </div>
+  <button onclick="app.add(6)">外部调用构造器里的方法</button>
+</body>
+<script>
+var add = {
+  template:`<button>组件Add</button>`
+}
+var app = new Vue({
+  el:'#app',
+  data:{
+    num:1
+  },
+  components:{
+    'add':add
+  },
+  methods:{
+    add:function(number){
+      if(!number){
+        this.num++
+      }else{
+        this.num+=number
+      }
+    }
+  }
+})
+</script>
+</html>
