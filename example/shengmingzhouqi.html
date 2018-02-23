@@ -14,6 +14,8 @@
     <div>分数：{{count}}</div>
     <button @click="add">add</button>
     <button onclick="unbind()">unbind</button>
+    <br>
+    <img v-bind:src="imgSrc" :title="biaoti">
   </div>
 </body>
 <script>
@@ -25,7 +27,9 @@
   var app = new Vue({
     el:'#app',
     data:{
-      count:0
+      count:0,
+      biaoti:'Vue的生命周期',
+      imgSrc:'../assets/lifeCycle.jpg',
     },
     methods: {
       add:function(){
