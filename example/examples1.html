@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue和Jquery & 调用自定义方法<</title>
+  <script src="../assets/js/vue.js"></script>
+  <script src="../assets/js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <h1>Vue和Jquery.js一起使用 & 实例调用自定义方法</h1>
+  <hr>
+  <div id="app">
+    {{message}}
+  </div>
+</body>
+<script>
+var app = new Vue({
+  el:'#app',
+  data:{
+    message:'hello vue'
+  },
+  mounted:function(){
+    $('#app').html('我是jQuery!');
+  },
+  methods:{
+    log:function(){
+      console.log("构造器里的log方法");
+    }
+  }
+})
+	
+app.log();
+</script>
+</html>
